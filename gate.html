@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Rising — Get In Touch</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C9A54C;
+      --gold-light: #E8C97A;
+      --purple-deep:#0D0520;
+      --dark:       #09060F;
+      --white:      #FFFFFF;
+      --off-white:  #EDE9E4;
+      --muted:      #9A90A8;
+      --border:     rgba(201, 165, 76, 0.3);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(160deg, #0D0520 0%, #130730 45%, #0A0A1A 100%);
+      color: var(--off-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .gate-logo {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .gate-eyebrow {
+      font-family: Arial, sans-serif; font-size: 12px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(26px, 6vw, 38px);
+      font-weight: normal; line-height: 1.25;
+      color: var(--white); text-align: center;
+      max-width: 560px; margin-bottom: 10px;
+    }
+
+    .gate-sub {
+      font-family: Arial, sans-serif; font-size: 14px;
+      color: var(--muted); text-align: center;
+      max-width: 480px; margin-bottom: 32px;
+    }
+
+    .form-card {
+      width: 100%; max-width: 640px;
+      background: rgba(26, 10, 46, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 560px;
+      border: none;
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .gate-footer {
+      font-family: Arial, sans-serif; font-size: 12px;
+      color: var(--muted); text-align: center;
+      margin-top: 24px;
+    }
+
+    .gate-footer .gold { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <img src="lr-icon-glow.png" alt="Lumina Rising" class="gate-logo" />
+  <div class="gate-eyebrow">Lumina Rising · Health, Wealth &amp; Freedom</div>
+  <h1>You found this for a reason</h1>
+  <p class="gate-sub">Pop your details in below and we'll send you straight through to the full overview, videos, packages and testimonials.</p>
+
+  <div class="form-card">
+    <iframe
+      id="JotFormIFrame-261600811198050"
+      title="Lumina Rising - Get In Touch"
+      onload="window.parent.scrollTo(0,0)"
+      allowtransparency="true"
+      allow="geolocation; microphone; camera; fullscreen"
+      src="https://form.jotform.com/261600811198050"
+      scrolling="no">
+    </iframe>
+  </div>
+
+  <p class="gate-footer">Prefer to chat right away? <span class="gold">WhatsApp us on +64 22 376 9983</span></p>
+
+  <script type="text/javascript" src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+  <script>
+    window.jotformEmbedHandler("iframe[id='JotFormIFrame-261600811198050']", "https://form.jotform.com");
+  </script>
+
+</body>
+</html>
