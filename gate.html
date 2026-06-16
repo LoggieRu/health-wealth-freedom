@@ -108,24 +108,30 @@
   <script>
     window.jotformEmbedHandler("iframe[id='JotFormIFrame-261651177588064']", "https://form.jotform.com");
 
-    window.addEventListener("message", function (event) {
-      var data = event.data;
-      if (typeof data !== "string") return;
-      if (data.indexOf("submission-completed") === -1) return;
+    (function () {
+      var iframe = document.getElementById("JotFormIFrame-261651177588064");
+      var firstLoad = true;
+      var done = false;
 
-      var card = document.querySelector(".form-card");
-      if (card) {
-        card.innerHTML =
-          '<div style="padding: 60px 20px; text-align: center;">' +
-          '<p style="font-family: Georgia, serif; color: var(--white); font-size: 20px; margin-bottom: 10px;">Thanks for reaching out to Lumina Rising!</p>' +
-          '<p style="font-family: Arial, sans-serif; color: var(--muted); font-size: 14px;">You\'ll be redirected shortly...</p>' +
-          '</div>';
-      }
+      iframe.addEventListener("load", function () {
+        if (firstLoad) { firstLoad = false; return; }
+        if (done) return;
+        done = true;
 
-      setTimeout(function () {
-        window.location.href = "https://loggieru.github.io/health-wealth-freedom/";
-      }, 2000);
-    });
+        var card = document.querySelector(".form-card");
+        if (card) {
+          card.innerHTML =
+            '<div style="padding: 60px 20px; text-align: center;">' +
+            '<p style="font-family: Georgia, serif; color: var(--white); font-size: 20px; margin-bottom: 10px;">Thanks for reaching out to Lumina Rising!</p>' +
+            '<p style="font-family: Arial, sans-serif; color: var(--muted); font-size: 14px;">You\'ll be redirected shortly...</p>' +
+            "</div>";
+        }
+
+        setTimeout(function () {
+          window.location.href = "https://loggieru.github.io/health-wealth-freedom/";
+        }, 2000);
+      });
+    })();
   </script>
 
 </body>
