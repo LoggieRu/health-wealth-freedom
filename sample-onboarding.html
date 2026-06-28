@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample — Lifewave Onboarding Checklist</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f7;
+      color: #1a2744;
+    }
+
+    .save-banner {
+      background: #0071bc;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #1a2744;
+      color: white;
+      padding: 28px 24px 16px;
+    }
+
+    header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    header p { font-size: 14px; opacity: 0.75; }
+
+    .progress-wrap { background: #1a2744; padding: 0 24px 22px; }
+    .progress-label { color: #0071bc; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+    .progress-bar { background: rgba(255,255,255,0.18); border-radius: 10px; height: 9px; overflow: hidden; }
+    .progress-fill { background: #0071bc; height: 100%; border-radius: 10px; transition: width 0.35s ease; width: 0%; }
+
+    .container { max-width: 700px; margin: 0 auto; padding: 20px 14px 60px; }
+
+    .phase-block { background: white; border-radius: 12px; margin-bottom: 16px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
+
+    .phase-header {
+      background: #1a2744;
+      color: white;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phase-header .badge {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .phase-body { padding: 4px 20px 12px; }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f2f7;
+    }
+
+    .check-item:last-child { border-bottom: none; }
+
+    .check-item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      margin-top: 1px;
+      cursor: pointer;
+      accent-color: #0071bc;
+    }
+
+    .check-item label {
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #1a2744;
+      flex: 1;
+    }
+
+    .check-item.done label { text-decoration: line-through; color: #bbb; }
+
+    .item-title { font-weight: 700; display: block; margin-bottom: 2px; }
+    .item-sub { font-size: 13px; color: #666; }
+
+    a { color: #0071bc; font-weight: 600; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .credentials {
+      background: #f5f7fa;
+      border-left: 3px solid #0071bc;
+      padding: 8px 12px;
+      margin-top: 8px;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      line-height: 1.9;
+      font-family: 'Courier New', monospace;
+      color: #1a2744;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+      padding: 6px 0 2px 35px;
+    }
+
+    .section-divider {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #aaa;
+      padding: 10px 0 4px;
+    }
+
+    .final-block { padding: 18px 20px; }
+    .final-block p { font-size: 15px; line-height: 1.65; margin-bottom: 10px; }
+    .final-block p:last-child { margin-bottom: 0; }
+
+    footer { text-align: center; padding: 24px 20px; color: #aaa; font-size: 13px; }
+    footer a { color: #aaa; }
+  </style>
+</head>
+<body>
+
+<div class="save-banner">
+  SAVE THIS FILE FIRST — Right-click and save to your Documents or Desktop. Your progress saves automatically every time you tick a box.
+</div>
+
+<header>
+  <h1>Welcome to Lifewave, [Your Name]!</h1>
+  <p>ID: xxxxxxx &nbsp;|&nbsp; Work through each phase in order. Message your sponsor when you finish a phase.</p>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-label" id="progress-label">0 of 29 steps complete</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<div class="container">
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-header">
+      Phase 1 — Get Set Up
+      <span class="badge">Do First</span>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item">
+        <input type="checkbox" id="c1">
+        <label for="c1">
+          <span class="item-title">Your Lifewave website</span>
+          <span class="item-sub">This is the link you share with people: <a href="https://lifewave.com/" target="_blank">lifewave.com/[your-username]</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c2">
+        <label for="c2">
+          <span class="item-title">Log into your Back Office</span>
+          <span class="item-sub">Where you manage your business: <a href="https://backoffice.lifewave.com/" target="_blank">backoffice.lifewave.com</a></span>
+          <div class="credentials">Username: xxxxxxxxxx<br>Password: xxxxxxxxxx<br>Your Lifewave ID: xxxxxxx</div>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c3">
+        <label for="c3">
+          <span class="item-title">Update your profile</span>
+          <span class="item-sub">Add your photo and confirm your email address inside the Back Office</span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c4">
+        <label for="c4">
+          <span class="item-title">Sign up to Dream Team emails + Private Membership</span>
+          <span class="item-sub">Both buttons are on: <a href="https://dreamteam.community/home" target="_blank">dreamteam.community</a> — this puts you on the weekly call list automatically</span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-header">
+      Phase 2 — Join WhatsApp Groups
+      <span class="badge">Core 4 = Must Have</span>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item">
+        <input type="checkbox" id="c5">
+        <label for="c5">
+          <span class="item-title">Patching Community</span>
+          <span class="item-sub"><a href="https://chat.whatsapp.com/DmsnH7DyvMC88DmCLd0SHA" target="_blank">Join group</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c6">
+        <label for="c6">
+          <span class="item-title">Stories of Light (Testimonies)</span>
+          <span class="item-sub"><a href="https://chat.whatsapp.com/B7iE4Bcq5fFEnBV1MnAOnA" target="_blank">Join group</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c7">
+        <label for="c7">
+          <span class="item-title">New Zealand Dream Team</span>
+          <span class="item-sub"><a href="https://chat.whatsapp.com/JnUtxH8dPzz5CdhjcKWeJK" target="_blank">Join group</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c8">
+        <label for="c8">
+          <span class="item-title">Team Announcements</span>
+          <span class="item-sub"><a href="https://chat.whatsapp.com/FFaS9HOOcPuLT0NGPkTU9A" target="_blank">Join group</a></span>
+        </label>
+      </div>
+
+    </div>
+    <div class="note">Pathway to Director (Tue/Thu calls) and Premium (Mon/Wed/Fri calls) WhatsApp groups — your sponsor adds you personally once you apply for a program.</div>
+    <div style="height:10px;"></div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-header">Phase 3 — Join Facebook Groups</div>
+    <div class="phase-body">
+
+      <div class="check-item">
+        <input type="checkbox" id="c9">
+        <label for="c9">
+          <span class="item-title">Dream Team Facebook Group</span>
+          <span class="item-sub"><a href="https://www.facebook.com/groups/896907248317710/" target="_blank">Join group</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c10">
+        <label for="c10">
+          <span class="item-title">This Is It Team Facebook Group</span>
+          <span class="item-sub"><a href="https://www.facebook.com/groups/thisisitteam/" target="_blank">Join group</a></span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase-block">
+    <div class="phase-header">
+      Phase 4 — Watch These First
+      <span class="badge">In Order</span>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item">
+        <input type="checkbox" id="c11">
+        <label for="c11">
+          <span class="item-title">Andrew and Vanessa — Congratulations</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=1lDBGSfjzJQ&t=2s" target="_blank">Watch on YouTube</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c12">
+        <label for="c12">
+          <span class="item-title">Andrew and Vanessa — Welcome</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=17HKcfrOga0&t=37s" target="_blank">Watch on YouTube</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c13">
+        <label for="c13">
+          <span class="item-title">Andrew and Steve Merritt</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=0J3neK-AB7A" target="_blank">Watch on YouTube</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c14">
+        <label for="c14">
+          <span class="item-title">What is X39?</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=Bhk9SJkJ--Q" target="_blank">Watch on YouTube</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c15">
+        <label for="c15">
+          <span class="item-title">What is Photo Therapy?</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=e39-T5doTOE" target="_blank">Watch on YouTube</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c16">
+        <label for="c16">
+          <span class="item-title">Andrew and Vanessa — Business Launch</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=HVD5ICWPuUg" target="_blank">Watch on YouTube</a> — save this link. Share it with anyone who can't make a live Zoom.</span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase-block">
+    <div class="phase-header">
+      Phase 5 — Your Training
+      <span class="badge">Work Through In Order</span>
+    </div>
+    <div class="phase-body">
+
+      <div class="section-divider">This Is It Team — Main Training</div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c17">
+        <label for="c17">
+          <span class="item-title">On-Boarding — watch the main video</span>
+          <span class="item-sub"><a href="https://thisisitteam.com/home" target="_blank">thisisitteam.com</a> → click On-Boarding in the top menu</span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c18">
+        <label for="c18">
+          <span class="item-title">Go 1 Star, 2 Star, Manager — quick and important</span>
+          <span class="item-sub"><a href="https://thisisitteam.com/home" target="_blank">thisisitteam.com</a> → click Go 1 &amp; 2 Star Manager in the top menu</span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c19">
+        <label for="c19">
+          <span class="item-title">THIS IS IT 10 Step System — work through ALL steps. This is crucial.</span>
+          <span class="item-sub"><a href="https://thisisitteam.com/this-is-it-10-steps-system-main-page" target="_blank">Go to the 10 Step System</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c20">
+        <label for="c20">
+          <span class="item-title">Downloads — great resources to have</span>
+          <span class="item-sub"><a href="https://thisisitteam.com/home" target="_blank">thisisitteam.com</a> → open the menu (top right) → Downloads. Also check: 20/20 Vision, 60 Day Fast Track, 21 Day Fast Start Plan.</span>
+        </label>
+      </div>
+
+      <div class="section-divider">Dream Team — Brand Partner System</div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c21">
+        <label for="c21">
+          <span class="item-title">Brand Partner Starting Steps — follow every step in order</span>
+          <span class="item-sub"><a href="https://dreamteam.community/share" target="_blank">dreamteam.community/share</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c22">
+        <label for="c22">
+          <span class="item-title">One-stop info site — know this inside out. Share it with customers too.</span>
+          <span class="item-sub"><a href="https://thisisitinfo.com/" target="_blank">thisisitinfo.com</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c23">
+        <label for="c23">
+          <span class="item-title">Launch Your Business — how to start fast</span>
+          <span class="item-sub"><a href="https://dreamteam.community/launch" target="_blank">dreamteam.community/launch</a></span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase-block">
+    <div class="phase-header">
+      Phase 6 — Choose Your Program
+      <span class="badge">Talk to Your Sponsor First</span>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item">
+        <input type="checkbox" id="c24">
+        <label for="c24">
+          <span class="item-title">Watch: Pathway to Director (Vanessa)</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=0vZeCn4ZkYA&t=2s" target="_blank">Watch on YouTube</a> — Recommended for anyone building the business</span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c25">
+        <label for="c25">
+          <span class="item-title">Watch: 90 Day Run to Director (Andrew)</span>
+          <span class="item-sub"><a href="https://www.youtube.com/watch?v=4Wix2ojZnN4" target="_blank">Watch on YouTube</a></span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c26">
+        <label for="c26">
+          <span class="item-title">Apply for your program</span>
+          <span class="item-sub"><a href="https://dreamteam.community/programs" target="_blank">dreamteam.community/programs</a> — your sponsor will add you to the right WhatsApp group once you're in</span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 7 -->
+  <div class="phase-block">
+    <div class="phase-header">Phase 7 — Your Patches</div>
+    <div class="phase-body">
+
+      <div class="check-item">
+        <input type="checkbox" id="c27">
+        <label for="c27">
+          <span class="item-title">Start wearing your patches when your sleeves arrive</span>
+          <span class="item-sub">Apply X39 in the morning. Wear for 12 hours, then remove and discard. Same time each day.</span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c28">
+        <label for="c28">
+          <span class="item-title">Download and print your X39 Benefits Tracker</span>
+          <span class="item-sub">Fill in one column each day — this builds your story and your credibility.<br>
+          Get it here: <a href="https://dreamteam.community/patch" target="_blank">dreamteam.community/patch</a> → scroll to Step 3 → Download the Benefits Tracker</span>
+        </label>
+      </div>
+
+      <div class="check-item">
+        <input type="checkbox" id="c29">
+        <label for="c29">
+          <span class="item-title">Download the Sampling Guide</span>
+          <span class="item-sub">Print this and put it in an envelope with a sample patch when you introduce someone to X39.<br>
+          Get it here: <a href="https://dreamteam.community/share" target="_blank">dreamteam.community/share</a> → scroll to SAMPLING section → Download</span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FINAL -->
+  <div class="phase-block">
+    <div class="phase-header" style="background:#0071bc;">You Are In. Now Make It Count.</div>
+    <div class="final-block">
+      <p>Everything in this checklist is an investment — in your health, your income, and your future. The people who get results are the ones who treat it like a business from day one.</p>
+      <p>Work through each phase with intention. Your sponsor will be in touch, but don't wait to be chased. The sooner you are connected and educated, the sooner things start moving.</p>
+      <p style="font-weight:700; font-size:16px;">Welcome to the family. Let's go.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Health Wealth Freedom | Rudolf |
+  <a href="https://loggieru.github.io/health-wealth-freedom/" target="_blank">loggieru.github.io/health-wealth-freedom</a>
+</footer>
+
+<script>
+  const TOTAL = 29;
+  const STORAGE_KEY = 'hwf-onboarding-sample';
+
+  function saveState() {
+    const state = {};
+    for (let i = 1; i <= TOTAL; i++) {
+      const cb = document.getElementById('c' + i);
+      if (cb) state['c' + i] = cb.checked;
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function loadState() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    try {
+      const state = JSON.parse(raw);
+      for (let i = 1; i <= TOTAL; i++) {
+        const cb = document.getElementById('c' + i);
+        if (cb && state['c' + i]) {
+          cb.checked = true;
+          cb.closest('.check-item').classList.add('done');
+        }
+      }
+    } catch(e) {}
+    updateProgress();
+  }
+
+  function updateProgress() {
+    let done = 0;
+    for (let i = 1; i <= TOTAL; i++) {
+      const cb = document.getElementById('c' + i);
+      if (cb && cb.checked) done++;
+    }
+    const pct = Math.round((done / TOTAL) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = done + ' of ' + TOTAL + ' steps complete';
+  }
+
+  document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+    cb.addEventListener('change', function() {
+      this.closest('.check-item').classList.toggle('done', this.checked);
+      saveState();
+      updateProgress();
+    });
+  });
+
+  loadState();
+</script>
+</body>
+</html>
