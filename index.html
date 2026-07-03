@@ -10,22 +10,25 @@
     :root {
       --gold:       #C9A54C;
       --gold-light: #E8C97A;
-      --gold-dim:   rgba(201, 165, 76, 0.25);
-      --purple-deep:#0D0520;
-      --purple-card:#1A0A2E;
-      --purple-mid: #130720;
-      --dark:       #09060F;
+      --gold-deep:  #8F6E1F;                 /* readable gold for small text on light bg */
+      --gold-dim:   rgba(201, 165, 76, 0.35);
+      --purple-deep:#EFEAF7;                 /* light purple section band */
+      --purple-card:#FFFFFF;                 /* cards */
+      --purple-mid: #E9E3F3;
+      --bg:         #F7F5FB;                 /* page background */
+      --ink:        #2A1650;                 /* deep purple headings */
+      --dark:       #09060F;                 /* dark ink on gold buttons + hero/nav */
       --white:      #FFFFFF;
-      --off-white:  #EDE9E4;
-      --muted:      #9A90A8;
-      --border:     rgba(201, 165, 76, 0.3);
+      --off-white:  #3D3352;                 /* body text on light theme */
+      --muted:      #6E6486;
+      --border:     rgba(176, 141, 60, 0.4);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Georgia', serif;
-      background: var(--dark);
+      background: var(--bg);
       color: var(--off-white);
       line-height: 1.7;
       font-size: 17px;
@@ -122,7 +125,7 @@
 
     .hero-body {
       font-family: Arial, sans-serif; font-size: clamp(16px, 2.2vw, 19px);
-      color: var(--muted); max-width: 560px;
+      color: #A79DBE; max-width: 560px;
       line-height: 1.65; margin-bottom: 48px;
     }
 
@@ -150,7 +153,7 @@
 
     .hero-note {
       margin-top: 24px;
-      font-family: Arial, sans-serif; font-size: 13px; color: var(--muted);
+      font-family: Arial, sans-serif; font-size: 13px; color: #A79DBE;
     }
 
     /* ── DIVIDER ─────────────────────────────── */
@@ -162,13 +165,13 @@
     .section-label {
       font-family: Arial, sans-serif; font-size: 13px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 18px;
+      color: var(--gold-deep); margin-bottom: 18px;
       display: flex; align-items: center; gap: 12px;
     }
 
     h2 {
       font-size: clamp(26px, 4vw, 42px);
-      font-weight: normal; color: var(--white);
+      font-weight: normal; color: var(--ink);
       line-height: 1.2; margin-bottom: 16px;
     }
 
@@ -252,11 +255,11 @@
     .video-meta .v-label {
       font-family: Arial, sans-serif; font-size: 11px;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 6px;
+      color: var(--gold-deep); margin-bottom: 6px;
     }
     .video-meta .v-title {
       font-family: Arial, sans-serif; font-size: 15px;
-      color: var(--white); line-height: 1.4;
+      color: var(--ink); line-height: 1.4;
     }
 
     /* active iframe replaces thumb */
@@ -269,8 +272,8 @@
     .packages {
       padding: 90px 22px;
       background:
-        radial-gradient(ellipse at 90% 10%, rgba(201,165,76,0.06) 0%, transparent 50%),
-        var(--dark);
+        radial-gradient(ellipse at 90% 10%, rgba(201,165,76,0.10) 0%, transparent 50%),
+        var(--bg);
     }
 
     .packages-intro { max-width: 600px; margin-bottom: 52px; }
@@ -314,13 +317,13 @@
     .run-label {
       font-family: Arial, sans-serif; font-size: 11px;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 12px;
+      color: var(--gold-deep); margin-bottom: 12px;
     }
 
     .run-headline {
       font-family: Arial, sans-serif;
       font-size: clamp(22px, 3vw, 30px);
-      font-weight: 900; color: var(--white);
+      font-weight: 900; color: var(--ink);
       line-height: 1.2; margin-bottom: 8px;
     }
 
@@ -345,13 +348,13 @@
       display: flex; align-items: center; justify-content: center;
       font-family: Arial, sans-serif; font-size: 10px;
       font-weight: 700; letter-spacing: 0.06em;
-      color: var(--gold); text-align: center; line-height: 1.2;
+      color: var(--gold-deep); text-align: center; line-height: 1.2;
     }
 
     .run-milestone-text strong {
       display: block;
       font-family: Arial, sans-serif; font-size: 14px;
-      font-weight: 700; color: var(--white); margin-bottom: 2px;
+      font-weight: 700; color: var(--ink); margin-bottom: 2px;
     }
 
     .run-milestone-text span {
@@ -382,7 +385,7 @@
     }
     .pkg-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(201,165,76,0.12);
+      box-shadow: 0 12px 40px rgba(74, 43, 130, 0.18);
     }
 
     .pkg-badge {
@@ -397,7 +400,7 @@
     .pkg-name {
       font-family: Arial, sans-serif;
       font-size: 28px; font-weight: 900;
-      color: var(--gold); letter-spacing: 0.04em;
+      color: var(--gold-deep); letter-spacing: 0.04em;
       text-transform: uppercase; margin-bottom: 8px;
       margin-top: 28px;
     }
@@ -405,13 +408,13 @@
     .pkg-identity {
       font-family: Arial, sans-serif;
       font-size: 22px; font-weight: 700;
-      color: var(--white); margin-bottom: 2px;
+      color: var(--ink); margin-bottom: 2px;
     }
 
     .pkg-sub {
       font-family: Arial, sans-serif;
       font-size: 13px; font-weight: 700;
-      color: var(--white); margin-bottom: 16px;
+      color: var(--ink); margin-bottom: 16px;
     }
 
     .pkg-rule {
@@ -421,7 +424,7 @@
 
     .pkg-desc {
       font-family: Arial, sans-serif; font-size: 14px;
-      color: #C8C0D8; line-height: 1.65;
+      color: #4A4062; line-height: 1.65;
       margin-bottom: 18px;
     }
 
@@ -478,7 +481,7 @@
       font-family: Arial, sans-serif;
       font-size: 13px; font-weight: 700;
       letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-deep);
     }
     .testi-role {
       font-family: Arial, sans-serif;
@@ -496,9 +499,9 @@
     .cta-final {
       padding: 110px 22px;
       background:
-        radial-gradient(ellipse at 50% 100%, rgba(201,165,76,0.10) 0%, transparent 60%),
-        radial-gradient(ellipse at 20% 0%,   rgba(100,40,200,0.12) 0%, transparent 55%),
-        var(--dark);
+        radial-gradient(ellipse at 50% 100%, rgba(201,165,76,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 0%,   rgba(100,40,200,0.10) 0%, transparent 55%),
+        var(--bg);
       text-align: center;
     }
 
@@ -524,7 +527,7 @@
 
     .btn-email {
       display: inline-flex; align-items: center; gap: 10px;
-      background: transparent; color: var(--gold);
+      background: transparent; color: var(--gold-deep);
       padding: 16px 36px; border-radius: 4px; border: 1px solid var(--border);
       font-family: Arial, sans-serif; font-size: 14px;
       font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
@@ -547,7 +550,7 @@
     .footer-logo {
       font-family: Arial, sans-serif; font-size: 13px;
       letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 10px;
+      color: var(--gold-deep); margin-bottom: 10px;
     }
     footer p {
       font-family: Arial, sans-serif; font-size: 12px;
@@ -653,10 +656,10 @@
 
     <div style="margin-top: 36px; padding: 22px 28px; background: var(--purple-card); border: 1px solid var(--border); border-radius: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between;">
       <div>
-        <p style="font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px;">Want to go deeper?</p>
+        <p style="font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 5px;">Want to go deeper?</p>
         <p style="font-family: Arial, sans-serif; font-size: 15px; color: var(--off-white); margin: 0;">More videos, research, and full product information available at the official resource site.</p>
       </div>
-      <a href="https://thisisitinfo.com/" target="_blank" rel="noopener" style="display: inline-block; background: transparent; color: var(--gold); border: 1px solid var(--border); padding: 12px 26px; border-radius: 4px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: border-color 0.2s;">
+      <a href="https://thisisitinfo.com/" target="_blank" rel="noopener" style="display: inline-block; background: #2E5AAC; color: #FFFFFF; border: 1px solid #2E5AAC; padding: 12px 26px; border-radius: 4px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s;">
         Visit thisisitinfo.com &rarr;
       </a>
     </div>
@@ -788,7 +791,7 @@
             </div>
 
             <div style="padding: 16px 18px; background: rgba(201,165,76,0.08); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 32px;">
-              <p style="font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">Included in the Run</p>
+              <p style="font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px;">Included in the Run</p>
               <p style="font-family: Arial, sans-serif; font-size: 14px; color: var(--off-white); line-height: 1.6; margin: 0;">Get one on one coaching worth over $10,000, completely free, and rub shoulders with the millionaires helping you grow.</p>
             </div>
           </div>
@@ -814,7 +817,7 @@
 
     <div style="margin-top: 36px; padding: 22px 28px; background: var(--purple-card); border: 1px solid var(--border); border-radius: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between;">
       <div>
-        <p style="font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px;">Not sure where to start?</p>
+        <p style="font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 5px;">Not sure where to start?</p>
         <p style="font-family: Arial, sans-serif; font-size: 15px; color: var(--off-white); margin: 0;">Take our 30-second quiz and find out which package is the right fit for you.</p>
       </div>
       <a href="which-path.html" style="display: inline-block; background: var(--gold); color: var(--dark); padding: 12px 26px; border-radius: 4px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s;">
@@ -847,7 +850,7 @@
         </p>
         <p class="testi-name">Sarah Saunders</p>
         <p class="testi-role">New Zealand</p>
-        <a href="#videos" style="display:inline-block; margin-top:14px; font-family:Arial,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom: 1px solid var(--gold-dim); padding-bottom:2px;">&#9654; Watch Sarah's full story in the videos above</a>
+        <a href="#videos" style="display:inline-block; margin-top:14px; font-family:Arial,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-deep); text-decoration:none; border-bottom: 1px solid var(--gold-dim); padding-bottom:2px;">&#9654; Watch Sarah's full story in the videos above</a>
       </div>
 
       <!-- TESTIMONIAL 2 — Jacqueline Bekker -->
@@ -889,7 +892,7 @@
     <h2>Interested? Come to a presentation.</h2>
     <p class="cta-sub">No pressure. No obligation. See the full picture, ask every question, then make a decision that makes sense for you.</p>
 
-    <p style="font-family:Arial,sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:28px;">( Or contact the person who shared this link with you )</p>
+    <p style="font-family:Arial,sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:28px;">( Or contact the person who shared this link with you )</p>
 
     <div class="cta-buttons">
       <a href="https://wa.me/64223769983" target="_blank" rel="noopener" class="btn-wa">
@@ -911,7 +914,7 @@
     <p class="cta-contact-note">
       <span style="font-size:16px; color: var(--off-white);">+64 22 376 9983 &nbsp;&bull;&nbsp; teamluminarising@gmail.com</span><br><br>
       Come join our Skool community:<br>
-      <a href="https://www.skool.com/health-wealth-freedom-6661/about" target="_blank" rel="noopener" style="color: var(--gold); font-size:15px; letter-spacing:0.04em;">Health, Wealth &amp; Freedom</a>
+      <a href="https://www.skool.com/health-wealth-freedom-6661/about" target="_blank" rel="noopener" style="color: var(--gold-deep); font-size:15px; letter-spacing:0.04em;">Health, Wealth &amp; Freedom</a>
     </p>
   </div>
 </section>
