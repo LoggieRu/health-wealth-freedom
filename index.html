@@ -452,6 +452,40 @@
     }
     .pkg-features li::marker { color: var(--gold); }
 
+    /* ── ALAVIDA ─────────────────────────────── */
+    .alavida {
+      padding: 90px 22px;
+      background:
+        radial-gradient(ellipse at 10% 90%, rgba(95,180,229,0.10) 0%, transparent 50%),
+        var(--bg);
+    }
+
+    .alv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .alv-card {
+      background: var(--purple-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 20px;
+    }
+
+    .alv-card .alv-name {
+      font-family: Arial, sans-serif; font-size: 14px;
+      font-weight: 700; color: var(--gold-deep);
+      text-transform: uppercase; letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .alv-card .alv-desc {
+      font-family: Arial, sans-serif; font-size: 13.5px;
+      color: var(--off-white); line-height: 1.6;
+    }
+
     /* ── TESTIMONIALS ────────────────────────── */
     .testimonials {
       padding: 90px 22px;
@@ -734,15 +768,65 @@
 <div class="divider"></div>
 
 
+<!-- ───────── ALAVIDA ───────── -->
+<section class="alavida" id="alavida">
+  <div class="container-wide">
+
+    <div class="videos-intro">
+      <p class="section-label">Also New</p>
+      <h2>Alavida: a skincare ritual, morning and night.</h2>
+      <p>Alongside X39, we've launched Alavida, a four-product regimen built around copper peptide and a blend of nourishing botanicals. It's a simple daily and nightly ritual, not a treatment, just skincare that supports how your skin looks and feels.</p>
+    </div>
+
+    <div class="alv-grid">
+      <div class="alv-card">
+        <p class="alv-name">Alavida Patch</p>
+        <p class="alv-desc">Worn overnight as part of LifeWave's patented phototherapy patch technology. Used alongside the Nightly Restore Créme as the last step of your evening ritual.</p>
+      </div>
+      <div class="alv-card">
+        <p class="alv-name">Daily Refresh Facial Nectar</p>
+        <p class="alv-desc">A lightweight two-in-one daytime moisturizer, a fresh base to start the morning before makeup or your day.</p>
+      </div>
+      <div class="alv-card">
+        <p class="alv-name">Nightly Restore Facial Créme</p>
+        <p class="alv-desc">Your nighttime moisturizer, formulated to complement the Nectar for round-the-clock hydration.</p>
+      </div>
+      <div class="alv-card">
+        <p class="alv-name">Revive Eye Cream</p>
+        <p class="alv-desc">Infused with copper peptide, targeting the appearance of puffiness, uneven tone, and firmness around the eyes.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:32px; text-align:center;">
+      <a href="https://wa.me/64223769983?text=Hi%20Rudolf%2C%20I%27d%20like%20to%20know%20more%20about%20Alavida." target="_blank" rel="noopener" class="btn-primary">Ask About Alavida &rarr;</a>
+    </div>
+
+    <p style="margin-top: 28px; font-family: Arial, sans-serif; font-size: 12px; color: var(--muted); line-height: 1.7; text-align:center;">
+      Cosmetic skincare only. Alavida is not designed to treat, cure, or prevent any disease or condition, and results describe appearance only. Individual results vary.
+    </p>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
 <!-- ───────── PACKAGES ───────── -->
 <section class="packages" id="packages">
   <div class="container-wide">
 
     <div class="packages-intro">
       <p class="section-label">Your Starting Point</p>
-      <h2>Choose the level that fits where you are right now.</h2>
-      <p>Four packages. Same dedication at every level, different income streams, different tools, and different avenues of support as you move up. Pricing and full details are covered in the presentation.</p>
+      <h2>There's a business side to this too.</h2>
+      <p>If health is the reason you're here, the income opportunity might be the reason you stay. Four package levels, each one unlocking more income streams, tools, and support as you grow.</p>
     </div>
+
+    <div style="padding: 34px 32px; background: linear-gradient(135deg, rgba(95,180,229,0.14) 0%, rgba(25,79,144,0.10) 100%); border: 2px solid var(--gold); border-radius: 12px; box-shadow: 0 8px 30px rgba(25,79,144,0.15); text-align: center;">
+      <p style="font-family: Arial, sans-serif; font-size: 19px; color: var(--ink); font-weight: 700; margin: 0 auto 18px; max-width: 560px; line-height: 1.4;">See the four packages, what each one unlocks, and the 90-Day Run to Director.</p>
+      <button type="button" id="pkgToggleBtn" class="btn-primary" style="border: none; cursor: pointer;">Show Me The Packages &rarr;</button>
+    </div>
+
+    <div id="pkgDetails" style="display: none; margin-top: 36px;">
 
     <div class="pkg-grid">
 
@@ -889,6 +973,8 @@
       </a>
     </div>
 
+    </div><!-- /#pkgDetails -->
+
   </div>
 </section>
 
@@ -1019,6 +1105,22 @@
       this.style.cursor = 'default';
     });
   });
+</script>
+
+<!-- ───────── PACKAGES CLICK-TO-REVEAL ───────── -->
+<script>
+  (function () {
+    var btn = document.getElementById('pkgToggleBtn');
+    var details = document.getElementById('pkgDetails');
+    if (!btn || !details) return;
+
+    btn.addEventListener('click', function () {
+      var opening = details.style.display === 'none';
+      details.style.display = opening ? 'block' : 'none';
+      btn.textContent = opening ? 'Hide Packages ↑' : 'Show Me The Packages →';
+      if (opening) details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  })();
 </script>
 
 </body>
